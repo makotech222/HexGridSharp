@@ -15,9 +15,11 @@ namespace HexGridSharp
     public class HexGrid
     {
         #region Fields
+
         private int _hexCountX;
         private int _hexCountY;
         private float _hexWidth;
+
         #endregion Fields
 
         #region Properties
@@ -109,7 +111,7 @@ namespace HexGridSharp
         #region Properties
 
         public List<Vector2> Corners { get; set; }
-        public Vector2 Center { get { return new Vector2(Corners[3].X, Corners[3].Y - +_outerRadius); } }
+        public Vector2 Center { get { return new Vector2(Corners[3].X, Corners[3].Y - _outerRadius); } }
 
         public int Row { get; set; }
         public int Column { get; set; }
