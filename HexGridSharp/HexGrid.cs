@@ -166,42 +166,4 @@ namespace HexGridSharp
 
         #endregion Methods
     }
-
-    public struct Pixel
-    {
-        #region Fields
-
-        public byte R;
-        public byte G;
-        public byte B;
-        public byte A;
-
-        #endregion Fields
-
-        #region Constructor
-
-        public Pixel(byte r, byte g, byte b, byte a)
-        {
-            R = r;
-            G = g;
-            B = b;
-            A = a;
-        }
-
-        #endregion Constructor
-
-        #region Methods
-
-        public byte[] ToByteArray()
-        {
-            return new byte[] { R, G, B, A };
-        }
-
-        public override string ToString()
-        {
-            return $"({R} , {G}, {B}, {A})";
-        }
-
-        #endregion Methods
-    }
 }
