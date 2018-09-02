@@ -113,6 +113,7 @@ namespace HexGridSharp
         public List<Vector2> Corners { get; set; }
         public Vector2 Center { get { return new Vector2(Corners[3].X, Corners[3].Y - _outerRadius); } }
 
+        public Vector3<int> Coordinate { get; set; }
         public int Row { get; set; }
         public int Column { get; set; }
 
@@ -122,6 +123,9 @@ namespace HexGridSharp
 
         public HexCell(float offsetX, float offsetZ, int row, int column)
         {
+            Coordinate = new Vector3<int>(column - (row - (row & 1)) / 2,
+                (-1 * (column - (row - (row & 1)) / 2)) - row,
+                row);
             Row = row;
             Column = column;
             Corners = new List<Vector2>
@@ -153,6 +157,37 @@ namespace HexGridSharp
         {
             X = x;
             Y = y;
+        }
+
+        #endregion Constructor
+
+        #region Methods
+
+        public override string ToString()
+        {
+            return $"({X} , {Y})";
+        }
+
+        #endregion Methods
+    }
+
+    public struct Vector3<T>
+    {
+        #region Fields
+
+        public T X;
+        public T Y;
+        public T Z;
+
+        #endregion Fields
+
+        #region Constructor
+
+        public Vector3(T x, T y, T z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
         }
 
         #endregion Constructor
