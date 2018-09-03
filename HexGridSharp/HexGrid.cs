@@ -120,7 +120,13 @@ namespace HexGridSharp
         #endregion Properties
 
         #region Constructor
-
+        public HexCell(HexCell copy)
+        {
+            this.Coordinate = copy.Coordinate;
+            this.Row = copy.Row;
+            this.Column = copy.Column;
+            this.Corners = new List<Vector2>(copy.Corners);
+        }
         public HexCell(float offsetX, float offsetZ, int row, int column)
         {
             Coordinate = new Vector3<int>(column - (row - (row & 1)) / 2,
